@@ -47,9 +47,9 @@ public class AppDemo {
     public void addContact(){
 
         //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        clickEle(10, By.xpath("//android.widget.TextView[@text=\"联系人\"]"));
+        clickEle(10, By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TabHost/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.AbsListView/android.widget.RelativeLayout[2]/android.view.View[1]"));
 
-        clickEle(10, By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TabHost/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.TabWidget/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.TextView"));
-        //clickEle(10, By.id("com.tencent.mobileqq:id/group_name"));
         clickEle(10, By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TabHost/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.AbsListView/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.view.View"));
 
         clickEle(10, By.xpath("//android.widget.Button[@content-desc=\"发消息\"]"));
@@ -62,6 +62,11 @@ public class AppDemo {
         clickEle(10, By.id("com.tencent.mobileqq:id/fun_btn"));
     }
 
+    /**
+     *  封装点击事件
+     * @param timeOutInSeconds
+     * @param locator
+     */
     private void clickEle(long timeOutInSeconds, By locator) {
         WebDriverWait lianxirenWait = new WebDriverWait(driver,timeOutInSeconds);
         WebElement lianxirenEl = lianxirenWait.until(ExpectedConditions.elementToBeClickable(locator));
